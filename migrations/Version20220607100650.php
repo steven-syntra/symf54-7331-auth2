@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220514135022 extends AbstractMigration
+final class Version20220607100650 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,15 +20,12 @@ final class Version20220514135022 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE teacher (id INT AUTO_INCREMENT NOT NULL, naam VARCHAR(255) NOT NULL, 
-voornaam VARCHAR(255) DEFAULT NULL, geboortedatum DATE DEFAULT NULL, 
-specialisatie VARCHAR(255) DEFAULT NULL, 
-PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles LONGTEXT NOT NULL COMMENT \'(DC2Type:json)\', password VARCHAR(255) NOT NULL, naam VARCHAR(255) DEFAULT NULL, voornaam VARCHAR(255) DEFAULT NULL, telefoon VARCHAR(50) DEFAULT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE teacher');
+        $this->addSql('DROP TABLE user');
     }
 }
