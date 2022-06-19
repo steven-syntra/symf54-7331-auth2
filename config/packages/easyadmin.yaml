@@ -1,0 +1,9 @@
+easy_admin:
+        entities:
+                Student:
+                        class: App\Entity\Student
+                        form:  # <-- 'form' is applied to both 'new' and 'edit' views
+                                fields:
+                                        - 'id'
+                                        - { property: 'naam', type: 'text', label: 'Naam' }
+                                        - { property: 'voornaam', type: 'text', label: 'Voornaam' }
